@@ -1,16 +1,18 @@
 import React from "react";
-import {BrowserRouter} from 'react-router-dom';
+import {BrowserRouter,Route} from 'react-router-dom';
 import Header from "./Header";
 import Footer from "./Footer";
-import Search from "./Home/search";
-import QuickSearch from "./Home/Quicksearch";
+
+import Listing from './component/Listing/Listing';
+import Home from "./Home/Home";
 const Router=()=>{
     return(
         <BrowserRouter>
         <div>
             <Header/>
-            <Search/>
-            <QuickSearch/>
+                <Route exact path="/" component={Home}></Route>
+                <Route  path="/listing/:mealId" component={Listing}></Route>
+
             <Footer/>
         </div>
         </BrowserRouter>

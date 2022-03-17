@@ -6,7 +6,7 @@ const QuickDisplay = (props) => {
         if (mealData) {
             return mealData.map((item)=> {
                 return (
-                    <Link to="/">
+                    <Link to={`/listing/${item.mealtype_id}`} key={item.mealtype_id}>
                         <div className="Main-tile">
 
                             <div className="Tile-Container">
