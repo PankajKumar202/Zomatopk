@@ -30,6 +30,15 @@ body{
 .myHeading{
     background-color:#192734 !important ;
 }
+/* .mycity_name{
+    color:white !important;
+}
+.mycity_name2{
+    color:white !important;
+}
+.mycity_name3{
+    color:white !important;
+} */
 /*  */
 .container-fluid{
     background-color: #0e0462;
@@ -265,7 +274,7 @@ z-index: 100;
     margin-left:-8%;
 }
 footer{
-    /* margin-top:10%; */
+    margin-top:0.5%;
     position: absolute;
     background-color: black;
     color:white;

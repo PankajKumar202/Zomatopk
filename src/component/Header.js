@@ -1,6 +1,6 @@
 import React,{Fragment} from "react";
 import "./Home.css";
-
+// import "./Listing/Listing.css"
 import { Link } from "react-router-dom";
 // Darkmode
 function changeMode(props) {
@@ -16,6 +16,7 @@ function changeMode(props) {
     logo.classList.toggle("myLogo");
     var heading=document.getElementsByClassName("heading")[0];
     heading.classList.toggle("myHeading");
+
 }
 const Header=()=>{
     return(

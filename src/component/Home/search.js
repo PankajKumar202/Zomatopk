@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import "../Home.css";
-import Header from "../Header";
+
 const locurl="https://zomatopk.herokuapp.com/location";
 const resurl="https://zomatoajulypi.herokuapp.com/restaurant?stateId=";
 // required js 

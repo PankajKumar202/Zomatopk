@@ -1,79 +1,10 @@
-*{
-    margin:0;
-    padding: 0;
-}
-body{
-    margin: auto;
-    background-color: #fbfbfb;
+/* dark mode */
 
+/* dark mode ends */
+#mainListing{
+    margin-left: 12%;
+    margin-top: 5%;
 }
-/* dark
-.myDark{
-    background-color: #192734 !important;
-    color: white !important;
-}
-.myCont{
-    background-color: #192734 !important;
-    color: white !important;
-}
-.mySpot{
-    color:#fff !important;
-}
-.myCompHead{
-    color:#fff !important;
-}
-.myFilter{
-    color:#fff !important;
-}
-.myFilterItem{
-    color:#fff !important;
-}
-
-/* ends */
-/*  */
-/* .container-fluid{
-    background-color: #0e0462;
-}
-.navbar-brand{
-    font-family: 'Outfit', sans-serif;
-    font-family: 'Quicksand', sans-serif;
-    font-family: 'Raleway', sans-serif;
-    color: white !important;
-    font-size: 30px !important;
-    font-weight: bold !important;
-} */
-/* navbar */
-/* .navbar-nav{
-    margin-left:80%;
-    padding-left:10px;
-}
-.nav-link{
-    font-family: 'Outfit', sans-serif;
-    font-family: 'Quicksand', sans-serif;
-    font-family: 'Raleway', sans-serif;
-    margin-top: 0.8%;
-    
-    color: white !important;
-    font-weight: bold !important;
-
-}
-.nav-link:hover{
-    transform: scale(1.1);
-}
-#dark {
-    width: 20%;
-    height: auto;
-    background-color: white !important;
-    border: 2px solid black !important;
-    border-radius: 50px !important;
-} */ */
-.listing-Container{
-   
-    width:80%;
-    height: 800px;
-    margin-left: 7%;
-}
-
 .filter-Container{
   
     width:24%;
@@ -84,157 +15,79 @@ body{
     position:absolute;
     box-shadow: 0 4px 15px 0 grey;
 }
-.filter{
-    font-size: 26px;
-    font-weight: bold;
-    margin-left: 40%;
-    /* margin: 0 161px 10px 20px; */
-    color: #192f60;
-    line-height: 1.5;
-}
-.select{
-    font-size: 18px;
-    font-weight: normal;
-    margin: 10px 102px 11px 20px;
-    color:#192f60;
-    line-height: 1.5;
-}
-.restaurant{
-text-align: center;
-display: block;
-margin: 0 154px 10px 20px;
-width: 278px;
-    height: 30px;
-}
-
-
-.filter-item{
-
-    font-size: 18px;
-    font-weight: bold;
-    margin: 10px 102px 11px 20px;
-    display:block;
-    color:#192f60;
-    font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.5;
-
-
-}
-input{
-    display: inline-block;
-    color: black;
-   
-}
-label{
-  margin-left:9%;
-}
-
-.items-Container{
-    
-    width:50%;
-    height: 1250px;
+#filter{
+    height:600px;
+    width:20%;
     float: left;
-    margin-left: 29%;
-    margin-top: 2%;
-    position: absolute;
+    border: 5px solid gray;
+}
+#content{
+    width:65%;
+    float: left;
+    margin-left: 5%;
+    margin-top: -1%;
 
 }
-/*  */
-.heading{
-    font-size: 36px;
-    margin-left:10%;
-    margin-top:3%;
-    font-weight: bold;
-    color: #192f60;
-    line-height: 55px;
-}
 
-
-.Tile-Container{
-    
-    border-radius: 30px;
-    width: 671px;
-    height: 291px;
-    margin-top: 2%;
+.item {
+    width: 875px;
+    height: 320px;
     box-shadow: 0 4px 15px 0 grey;
-}
-.Tile-Component{
-    width: 28%;
-    height: 68%;
- 
-}
-.Tile-Component>img{
-    width: 123%;
-    
-    height: 103%;
-  
-    border-radius: 40px;
-}
-.Tile-Component2{
-   
-    width: 84px;;
-    float:right;
-    height: 15%;
-    
-    margin-top: -30%;
-    margin-right: 56%;
-}
-.Tile-Component2>a{
-    text-decoration: none;
-}
-.giani{
-    margin-top: 20%;
-    margin-left: 39%;
-    color: #192f60;
-    font-weight: bold;
-    
+    margin-bottom: 20px;
+    margin-left: 37%;
+    margin-top: 4.5%;
 }
 
-.Content-Component{
-    /* border:2px solid black; */
-   
-    float:right;
-    margin-top: -20%;
-    margin-right: 25%;
-}
-.Content-Component2{
-  /* border:2px solid black; */
-    float:right;
-    width: 23%;
-    margin-top: -15%;
-    margin-right: 40%;
-}
-.details{
-    /* border: 2px solid black; */
- 
-    float:right;
-    margin-right: 47%;
-    margin-top: -10%;
-}
-hr{
+.Image {
+    width: 340px;
+    height: 260px;
+    border-radius: 23px;
+    border: 2px solid white;
+    background-color: #ea6060;
+    margin-left:5%;
     margin-top:2%;
 }
-.Cost{
-    
-    margin-top: 2%;
-    margin-left: 2%;
-    
+
+.hotel_name {
+    width: 100%;
+    height: 43px;
+    font-family: Poppins;
+    font-size: 25px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2;
+    letter-spacing: normal;
+    text-align: left;
+    color: #192f60;
 }
 
-.checked{
-    color:orange;
-    font-weight: bold;
-    margin-left: 2%;
-}
-a{
-    text-decoration: none;
-}
-footer{
-    margin-top:34%;
-    background-color: black;
-    color:white;
-    
+.city_name {
+    width: 100%;
+    height: 23px;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #192f60;
 }
 
+.rating {
+    line-height: 5.4;
+}
+
+.badgeDiv{
+    margin-top: 5%;
+    width: 54%;
+}
+.bg-success{
+    margin-left:4%;
+}
+.Loading{
+    margin-left:45%;
+    margin-top:3%;
+}

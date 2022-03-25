@@ -1,6 +1,6 @@
 import React,{Component} from "react";
-import QuickDisplay from "./QuickDisplay";
 import "../Home.css";
+import QuickDisplay from "./QuickDisplay";
 const url="https://zomatopk.herokuapp.com/quickSearch";
 class QuickSearch extends Component{
     constructor(){
