@@ -5,9 +5,9 @@ import Footer from "./Footer";
 import Details from "./details/restDetails";
 import Listing from "./Listing/Listing";
 import Home from "./Home/Home";
-import ViewOrders from "./booking/viewOrder";
-import PlaceOrders from "./booking/viewOrder";
-import ViewOrders from "./booking/viewOrder";
+import PlaceOrder from "./booking/placeOrder";
+import ViewOrder from "./booking/viewOrder";
+// import ViewOrders from "./booking/viewOrder";
 const Router=()=>{
     return(
         <BrowserRouter>
@@ -16,8 +16,8 @@ const Router=()=>{
                 <Route exact path="/" component={Home}></Route>
                 <Route  path="/listing/:mealId" component={Listing}></Route>
                 <Route  path="/details" component={Details}></Route>
-                <Route path="/viewBooking" component={ViewOrders}></Route>
-                <Route path="/placeOrder/" component={PlaceOrders}></Route>
+                <Route path="/viewBooking" component={ViewOrder}></Route>
+                <Route path="/placeOrder/:restName" component={PlaceOrder}></Route>
              
 
 

@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
 import axios from 'axios';
 import ListingDisplay from './ListingDisplay';
-import "./Listing.css"
+import "./Listing.css";
+import Cuisinefilter from '../Filter/cuisineFilter';
 const restUrl="https://zomatopk.herokuapp.com/restaurent?mealtype_id=&state_id=";
 class Listing extends Component{
     constructor(props){
@@ -11,6 +12,8 @@ class Listing extends Component{
         };
     }
     render(){
+        console.log("Inside render listing js",this.state.restaurentList.mealTypes)
+        
         return(
             <>
                 <div className='row'>
@@ -19,12 +22,13 @@ class Listing extends Component{
                             <center>
                             <h3>Filter</h3>
                             </center>
+                            <Cuisinefilter/>
                             </div>
                             
                             
                             
                         
-                        <ListingDisplay listData={this.state.restaurentList}/>
+                        <ListingDisplay listData={this.state.restaurentList} />
                     </div>
                 </div>
             </>

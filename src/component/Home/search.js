@@ -1,21 +1,21 @@
 import React,{Component} from "react";
 import "../Home.css";
-
+import { withRouter } from "react-router-dom";
 const locurl="https://zomatopk.herokuapp.com/location";
-const resurl="https://zomatoajulypi.herokuapp.com/restaurant?stateId=";
+const resurl="https://zomatopk.herokuapp.com/restaurent?state_id=";
 // required js 
 function closeDiv(){
   document.getElementById("coupon").style.visibility="hidden";
 }
-function test(){
-  document.getElementById("coupon").style.visibility="visible";
-}
+// function test(){
+//   document.getElementById("coupon").style.visibility="visible";
+// }
 
-const myTimeout=setTimeout(greeting,1000);
-function greeting(){
+// const myTimeout=setTimeout(greeting,1000);
+// function greeting(){
   
-  document.getElementById("coupon").style.visibility="visible";
-}
+//   document.getElementById("coupon").style.visibility="visible";
+// }
 
 function copyClip(){
   var code=document.getElementById("Copy");
@@ -42,7 +42,7 @@ class Search extends Component{
     }
   }
   renderCity=(data)=>{
-   
+ 
       if(data){
         return data.map((item)=>{
           return(
@@ -75,6 +75,11 @@ class Search extends Component{
       this.setState({resData:data})
     })
   }
+  handleRest = (event) => {
+    console.log("inside handleRest >>>",this.props)
+    let restId = event.target.value;
+    this.props.history.push(`/details?restId=${restId}`)
+}
 render(){
   console.log("inside render>>>>>>>>",this.state.location)
   return(
@@ -92,13 +97,13 @@ render(){
         </div>
         <div className="carousel-inner">
             <div className="carousel-item active">
-                <img src="https://i.ibb.co/Njn0vFR/hot-pot-2426889-1920.jpg" className="d-block w-100" alt="..."/>
+                 < img  src="https://i.ibb.co/Njn0vFR/hot-pot-2426889-1920.jpg" className="d-block w-100 homeImage" alt="..."/>
             </div>
             <div className="carousel-item">
-                <img src="https://i.ibb.co/BKZtjR6/food-3297633-1920.jpg" className="d-block w-100" alt="..."/>
+                <img   src="https://i.ibb.co/BKZtjR6/food-3297633-1920.jpg" className="d-block w-100 homeImage" alt="..."/>
             </div>
             <div className="carousel-item ">
-                <img src="https://i.ibb.co/my4rZ38/food-909476-1920.jpg" className="d-block w-100" alt="..."/>
+                <img   src="https://i.ibb.co/my4rZ38/food-909476-1920.jpg" className="d-block w-100 homeImage" alt="..."/>
             </div>
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -128,9 +133,10 @@ render(){
              <option>----SELECT CITY----</option>
              {this.renderCity(this.state.location)}
         </select>
-        <select className="restaurant" id="hotels">
+        <select className="restaurant" id="hotels" onChange={this.handleRest}>
             <option>----SELECT RESTAURANT'S----</option>
             {this.renderRes(this.state.resData)}
+            {/* {this.handleRest(this.state.resData)} */}
 
         </select>
     </div>
@@ -172,4 +178,4 @@ componentDidMount(){
 }
 //to call an api on page load
 
-export default Search;
+export default withRouter(Search);

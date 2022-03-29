@@ -14,28 +14,83 @@ class Details extends Component {
             details: "",
             menuList: "",
             userItem: "",
-            mealId:sessionStorage.getItem('mealid')
+            mealId: sessionStorage.getItem('mealid')
         }
+
     }
-    addToCart=(data)=>{
-        console.log(">>>>",data)
-        this.setState({userItem:data});
+    addToCart = (data) => {
+        console.log(">>>>", data)
+        this.setState({ userItem: data });
     }
-    proceed=()=>{
-        sessionStorage.setItem('menu',this.state.userItem)
+    proceed = () => {
+        sessionStorage.setItem('menu', this.state.userItem)
         this.props.history.push(`/placeOrder/${this.state.details.restaurant_name}`)
     }
+    // renderRes=(data)=>{
+
+    //     if(data){
+    //       return data.map((item)=>{
+    //         return(
+    //           <option value={item.restaurant_id} key={item.restaurant_id}>{item.restaurant_name} | {item.address}</option>
+    //         )
+    //       })
+    //     }
+
+
+    // }
+    // imageCarousal = () => {
+    //     console.log("ResCarousal>>>",this.state.details)
+    //     if (this.state.details) {
+    //         return this.state.details.map((item) => {
+    //             return(
+
+    //             )
+    //         })
+    //     }
+    // }
+
     render() {
-        console.log("Inside render>>>", this.state.details)
+
+        console.log("Inside render >>>>", this.state.details.image_gallery)
+        let imagesCarousal = () => {
+            if (this.state.details.image_gallery) {
+                return (
+                    this.state.details.image_gallery.map((index) => {
+                        return (
+                            <div class="carousel-item  imageClass" key={index.restaurant_id}>
+                                <img src={index} class="d-block w-100" alt="..." />
+                            </div>
+
+
+                        )
+                    }))
+            }
+        }
         let { details } = this.state;
         return (
             <>
                 <div className="main">
                     <div className="tileImage">
+                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                            <div class="carousel-item active imageClass" >
+                                <img src={details.restaurant_thumb} class="d-block w-100" alt="..." />
+                            </div>
 
-                        <div className="imageClass">
-                            <img src={details.restaurant_thumb} alt="" />
+                                {imagesCarousal()}
+                               
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
                         </div>
+
+
                     </div>
                     <div className="tileContent">
                         <h1>{details.restaurant_name}</h1>
@@ -61,39 +116,52 @@ class Details extends Component {
 
                                     <TabPanel>
                                         <h2>{details.restaurant_name}</h2>
-                                        <b>{details.restaurant_name} </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed augue lacus viverra vitae 
-                                        
+                                        <b>{details.restaurant_name} </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed augue lacus viverra vitae
+
                                     </TabPanel>
                                     <TabPanel>
                                         <h4>{details.address}</h4>
                                         <h4>{details.contact_number}</h4>
                                     </TabPanel>
                                 </Tabs>
-                                <Link to={`/listing/${this.state.mealId}`}className="btn btn-danger" style={{marginTop:"1%"}}>
+                                <Link to={`/listing/${this.state.mealId}`} className="btn btn-danger" style={{ marginTop: "1%" }}>
                                     Back
                                 </Link>&nbsp;
-                                <Link to="#" className="btn btn-primary" style={{marginTop:"1%"}}>
-                                   Proceed
+                                <Link to={`/placeOrder/:restName`} className="btn btn-primary" style={{ marginTop: "1%" }}>
+                                    Proceed
                                 </Link>
                             </div>
                         </div>
 
                     </div>
-                    
+
                 </div>
-                <MenuDisplay menuData={this.state.menuList} 
-                finalOrder={(data)=>{this.addToCart(data)}}/>
+                <MenuDisplay menuData={this.state.menuList}
+                    finalOrder={(data) => { this.addToCart(data) }} />
             </>
 
         )
     }
     async componentDidMount() {
-        // console.log("inside Componentdidmount>>>", this.props.location.search)
+        console.log("inside Componentdidmount>>>", this.props.location.search)
         let restid = this.props.location.search.split('=')[1];
 
         let response = await axios.get(`${url}/${restid}`);
         let mealData = await axios.get(`${menuUrl}/${restid}`);
+        console.log("Inside comp did mont response >>>", response.data[0])
+        console.log("Inside comp did mont response >>>", mealData.data)
         this.setState({ details: response.data[0], menuList: mealData.data })
     }
+
 }
+// componentDidMount(){
+//     console.log("Inside ComponentDidMount>>>>>>")
+//     fetch(locurl,{method:'GET'})
+//     .then((res)=>res.json())
+//     .then((data)=>{
+//       console.log(data)
+//       this.setState({location:data})
+//     })
+//     }
+//   }
 export default Details;
