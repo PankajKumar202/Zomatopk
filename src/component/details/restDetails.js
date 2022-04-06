@@ -5,6 +5,7 @@ import axios from "axios";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { Link } from "react-router-dom";
+import Header from "../Header";
 const url = "https://zomatopk.herokuapp.com/restaurent";
 const menuUrl = "https://zomatopk.herokuapp.com/Menu";
 class Details extends Component {
@@ -51,7 +52,7 @@ class Details extends Component {
 
     render() {
 
-        console.log("Inside render >>>>", this.state.details.image_gallery)
+    //    console.log("Inside render restdetails",this.state.details.restaurant_name)
         let imagesCarousal = () => {
             if (this.state.details.image_gallery) {
                 return (
@@ -69,6 +70,7 @@ class Details extends Component {
         let { details } = this.state;
         return (
             <>
+            <Header/>
                 <div className="main">
                     <div className="tileImage">
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -127,7 +129,7 @@ class Details extends Component {
                                 <Link to={`/listing/${this.state.mealId}`} className="btn btn-danger" style={{ marginTop: "1%" }}>
                                     Back
                                 </Link>&nbsp;
-                                <Link to={`/placeOrder/:restName`} className="btn btn-primary" style={{ marginTop: "1%" }}>
+                                <Link className="btn btn-primary" style={{ marginTop: "1%" }} onClick={this.proceed}>
                                     Proceed
                                 </Link>
                             </div>

@@ -30,6 +30,7 @@ body{
 .myHeading{
     background-color:#192734 !important ;
 }
+
 /* .mycity_name{
     color:white !important;
 }
@@ -53,8 +54,8 @@ body{
 }
 /* navbar */
 .navbar-nav{
-    margin-left:86%;
-    padding-left:10px;
+    margin-left: 76%;
+    padding-left: 10px;
 }
 .nav-link{
     font-family: 'Outfit', sans-serif;
@@ -111,7 +112,7 @@ body{
     color:#fff;
 }
 #dark{
-    width: 20%;
+    width: 16%;
     height: auto;
     background-color: white !important;
  border: 2px solid black !important;

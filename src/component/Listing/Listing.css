@@ -1,5 +1,7 @@
 /* dark mode */
-
+.mycity_name{
+    background-color:#fff !important ;
+}
 /* dark mode ends */
 #mainListing{
     margin-left: 12%;
@@ -59,9 +61,13 @@
     line-height: 2;
     letter-spacing: normal;
     text-align: left;
-    color: #192f60;
+    margin-top:3%;
+    
 }
-
+.rest_name{
+    color: #192f60;
+    text-decoration: none;
+}
 .city_name {
     width: 100%;
     height: 23px;

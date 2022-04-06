@@ -1,6 +1,7 @@
 import React,{Component} from "react";
 import "../Home.css";
 import { withRouter } from "react-router-dom";
+
 const locurl="https://zomatopk.herokuapp.com/location";
 const resurl="https://zomatopk.herokuapp.com/restaurent?state_id=";
 // required js 
@@ -86,6 +87,7 @@ render(){
     <>
       {/* <h2>Search Page</h2> */}
       {/* <!-- carousal --> */}
+      
     <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active"

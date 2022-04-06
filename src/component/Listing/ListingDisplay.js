@@ -1,10 +1,11 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import "../Home.css";
+
 import './Listing.css';
 
 const ListingDisplay = (props) => {
+
     console.log(">>>", props)
     //  let mealType=({listData})=>{
     // if(listData){
@@ -19,32 +20,54 @@ const ListingDisplay = (props) => {
     // }
     //  }
 
-    const renderData = ({ listData}) => {
-        console.log("Inside mealType>>>>",listData)
+    // console.log("Inside MEaltype out>>>",props)
+    const renderData = ({ listData }) => {
+        // console.log("Inside mealType>>>>",listData[0])
         // let badge=()=>{
         //     if(listData){
         //         return listData
         //     }
         // }
-        console.log("Inside>>>>",listData)
-        let mealType=()=>{
-          
-            if(listData.length>0){
-                return listData.map((item)=>{
-                    return(
-                        <span className='badge bg-primary'  key={item.restaurant_id}>
-                                {item.mealTypes.mealtype_name}
-                        </span>
-                    )
-                })
-            }
-        }
+        console.log("Inside>>>>", listData)
+
+        // let mealType = () =>{
+
+        //     if(listData.length > 0){
+        //         return listData.map((item)=>{
+        //         // console.log("Inside Listdata index>>>",index)  
+        //          console.log("Inside Listdata",item)
+        //                 return(
+        //                     <span className="badge bg-info" key={item.restaurant_id}>
+        //                         {item.mealTypes.mealtype_name}
+        //                     </span>
+        //                 )
+
+
+
+        //         })
+        //     }
+        // }
+        // let mealType=()=>{
+        //   return 
+        // if(listData.length>0){
+        //     return listData.map((item)=>{
+        //         return(
+        //             <span className='badge bg-primary'  key={item.restaurant_id}>
+        //                     {item.mealTypes.mealtype_name}
+        //             </span>
+        //         )
+        //     })
+        // }
+        // }
         // console.log("MEaltype>>>",mealType())
+
         if (listData) {
             if (listData.length > 0) {
                 return listData.map((item) => {
                     return (
+
                         <div className="item" key={item.restaurant_id}>
+
                             <div className="row">
                                 <div className="col-md-5">
                                     <img src={item.restaurant_thumb} className="Image"
@@ -53,23 +76,23 @@ const ListingDisplay = (props) => {
                                 </div>
                                 <div className='col-md-7'>
                                     <div className='hotel_name'>
-                                        <Link to={`/details?restId=${item.restaurant_id}`}>{item.restaurant_name}</Link>
+                                        <Link to={`/details?restId=${item.restaurant_id}`} className='rest_name'>{item.restaurant_name}</Link>
                                         <div className='city_name'>{item.address}</div>
                                         <div className='city_name'>Ratings : {item.rating_text}</div>
                                         <div className='city_name'>Rs.{item.cost}</div>
                                         <div className='badgeDiv'>
-                                            {mealType()}
-                                            {/* <span className='badge bg-primary'>
-                                               
-                                                
+                                            {/* {mealType()} */}
+                                            <span className='badge bg-primary'>
+
+
                                                 {item.mealTypes[0].mealtype_name}
                                             </span> &nbsp;
-                                            <span className='badge ' style={{backgroundColor:"brown"}}>
-                                               
-                                                
+                                            <span className='badge ' style={{ backgroundColor: "brown" }}>
+
+
                                                 {item.mealTypes[1].mealtype_name}
-                                            </span> */}
-                                           
+                                            </span>
+
                                             <span className='badge bg-danger'>
                                                 {item.cuisines[0].cuisine_name}
                                             </span>
