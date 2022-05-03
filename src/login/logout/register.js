@@ -29,6 +29,8 @@ class Register extends Component {
     }
 
     render(){
+        console.log("Inside register props>>>",this.props)
+    
         return(
             <>
                 <Header/>

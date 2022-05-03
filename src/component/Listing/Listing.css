@@ -1,11 +1,20 @@
 /* dark mode */
-.mycity_name{
+.myRestName{
     background-color:#fff !important ;
 }
 /* dark mode ends */
-#mainListing{
-    margin-left: 12%;
+.row{
+    width: 100%;
+    /* bord
+    .er: 2px solid; */
+}
+
+#mainListing {
+    /* border: 2px solid black; */
+    margin-left: 1%;
     margin-top: 5%;
+  
+    width: 98%;
 }
 .filter-Container{
   
@@ -24,10 +33,12 @@
     border: 5px solid gray;
 }
 #content{
-    width:65%;
+ 
+    width: 65%;
     float: left;
-    margin-left: 5%;
+    margin-left: 21%;
     margin-top: -1%;
+
 
 }
 
@@ -96,4 +107,149 @@
 .Loading{
     margin-left:45%;
     margin-top:3%;
+}
+/* Modal css */
+.modalContainer{
+    visibility: hidden;
+}
+/* Media querry */
+@media screen and (max-width:2000px){
+    .filter-Container{
+        margin-left:12%;
+    }
+}
+@media screen and (max-width:1650px){
+    .filter-Container {
+        margin-left: 2%;
+    }
+    .item {
+      
+        margin-left: 14%;
+      
+    }
+}
+@media screen and (max-width:1300px){
+    .item {
+        width: 87%;
+        
+    }
+    .rest_name {
+        margin-left: 12%;
+        font-size: 18px;
+    }
+    .city_name {
+        margin-left: 12%;
+    }
+    .badgeDiv {
+        /* border: 2px solid; */
+        width: 77%;
+        margin-left: 11%;
+        margin-top: 6%;
+    }
+    .item {
+        margin-left: 27%;
+        width: 94%;
+    }
+    .filter-Container {
+        margin-left: 10%;
+        margin-top: 5%;
+    }
+    
+.Image {
+    width: 295px;
+  
+    margin-left: -1%;
+   
+}
+#cityDiv{
+    /* border: 2px solid black; */
+    height: 100px;
+    margin-top: -12%;
+}
+}
+@media screen and (max-width:1100px){
+    .city_name {
+        font-size: 14px;
+        margin-left: 21%;
+    }
+    .rest_name {
+        margin-left: 20%;
+        font-size: 14px;
+    }
+    .badgeDiv{
+        
+    margin-left: 22%;
+
+    }
+}
+@media screen and (max-width:991px){
+    .filter-Container{
+        display: none;
+    }
+    .modalContainer{
+        visibility: visible;
+        float: right;
+        margin-top: -4%;
+    }
+    .item {
+        border: 2px solid;
+        margin-left: -30%;
+        width: 152%;
+    }
+    .city_name {
+        font-size: 22px;
+        margin-left: 20%;
+        margin-top: 3%;
+        width: 354px;
+    }
+    #cityDiv {
+        /* border: 2px solid black; */
+        height: 100px;
+        margin-top: -12%;
+    }
+    .rest_name {
+        margin-left: 20%;
+        font-size: 22px;
+    }
+    .Image {
+        width: 379px;
+        margin-left: 0%;
+        height: 307px;
+    }
+    .badgeDiv {
+        margin-left: 20%;
+        /* border: 2px solid; */
+        width: 75%;
+        margin-top: 19%;
+    }
+}
+@media screen and (max-width:800px) {
+    .badgeDiv {
+        margin-left: -2%;
+        border: 2px solid;
+        width: 104%;
+        margin-top: 24%;
+    }
+    .rest_name {
+        margin-left: -3%;
+        font-size: 22px;
+    }
+    .city_name {
+        /* border: 2px solid; */
+        font-size: 17px;
+        margin-left: -2%;
+        margin-top: 3%;
+        width: 354px;
+    }
+    
+    #listbox{
+        order: 2px solid;
+        width: 404px;
+        margin-left: 3%;
+    }
+    .Image {
+        width: 312px;
+        margin-left: 0%;
+        height: 307px;
+    }
 }

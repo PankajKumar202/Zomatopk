@@ -75,4 +75,113 @@
 }
 
 
-/* Me */
+/* Media */
+@media screen and (max-width:1800px) {
+    .man{
+        margin-top: -8.4%;
+    margin-left: 10%;
+    }
+}
+@media screen and (max-width:1600px) {
+    .man {
+        margin-top: -9.4%;
+        margin-left: 11%;
+    }
+}
+@media screen and (max-width:1400px) {
+    .man {
+        margin-top: -11%;
+        margin-left: 13%;
+    }
+}
+@media screen and (max-width:1200px) {
+    .man {
+        margin-top: -12.8%;
+        margin-left: 16%;
+    }
+}
+@media screen and (max-width:1000px) {
+    .man {
+        margin-top: -15.8%;
+        margin-left: 19%;
+    }
+}
+@media screen and (max-width:800px) {
+   
+        .man {
+            margin-top: -21.8%;
+            margin-left: -2%;
+        }
+    
+    .tileContent {
+        /* border: 2px solid; */
+       
+        width: 97%;
+      
+        margin-top: -6%;
+    }
+    .tileImage {
+        height: 558px;
+        width: 98%;
+        
+    }
+    .tileContent{
+        text-align: center;
+    }
+    .icons {
+        margin-left: -29%;
+    }
+    
+}
+@media screen and (max-width:600px) {
+   
+    .man {
+        margin-top: -32.8%;
+        margin-left: 4%;
+    }
+}
+@media screen and (max-width:400px) {
+   
+    .man {
+        margin-top: -49.8%;
+        margin-left: -18%;
+        place-content: center;
+    }
+    .imageClass > img {
+        height: 383px;
+    }    
+    .tileContent {
+        margin-top: -53%;
+    }
+    .TabList {
+        margin-top: 53%;
+    }
+    .icons {
+        margin-left: -6%;
+    }
+    #menuAdded{
+        margin-top: 71%;
+        /* position: absolute; */
+    }
+    #renderAdded{
+        margin-top: 48%;
+        position: absolute;
+        text-align: center;
+    }
+    #menuName{
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
+@media screen and (max-width:350px) {
+    .man {
+      
+        margin-left: -20%;
+    }
+}
+@media screen and (max-width:300px) {
+    .man {
+     
+        margin-left: -19%;
+    }
+}

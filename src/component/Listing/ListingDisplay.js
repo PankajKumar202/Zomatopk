@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
 import './Listing.css';
@@ -7,27 +7,9 @@ import './Listing.css';
 const ListingDisplay = (props) => {
 
     console.log(">>>", props)
-    //  let mealType=({listData})=>{
-    // if(listData){
-    //     if(listData){
-    //         return listData.map((item)=>{
-    //             return(
-    //                 console.log("Inside mealType>>>>",item.mealTypes.mealtype_name)
-
-    //                 )
-    //         })
-    //     }
-    // }
-    //  }
-
-    // console.log("Inside MEaltype out>>>",props)
+  
     const renderData = ({ listData }) => {
-        // console.log("Inside mealType>>>>",listData[0])
-        // let badge=()=>{
-        //     if(listData){
-        //         return listData
-        //     }
-        // }
+       
         console.log("Inside>>>>", listData)
 
         // let mealType = () =>{
@@ -74,31 +56,35 @@ const ListingDisplay = (props) => {
                                         alt={item.restaurant_name} />
 
                                 </div>
-                                <div className='col-md-7'>
+                                <div className='col-md-7' id='listbox'>
                                     <div className='hotel_name'>
                                         <Link to={`/details?restId=${item.restaurant_id}`} className='rest_name'>{item.restaurant_name}</Link>
+                                        <div id='cityDiv'>
                                         <div className='city_name'>{item.address}</div>
                                         <div className='city_name'>Ratings : {item.rating_text}</div>
                                         <div className='city_name'>Rs.{item.cost}</div>
+                                        </div>
                                         <div className='badgeDiv'>
-                                            {/* {mealType()} */}
-                                            <span className='badge bg-primary'>
-
-
-                                                {item.mealTypes[0].mealtype_name}
-                                            </span> &nbsp;
-                                            <span className='badge ' style={{ backgroundColor: "brown" }}>
-
-
-                                                {item.mealTypes[1].mealtype_name}
-                                            </span>
-
-                                            <span className='badge bg-danger'>
-                                                {item.cuisines[0].cuisine_name}
-                                            </span>
-                                            <span className='badge bg-success'>
-                                                {item.cuisines[1].cuisine_name}
-                                            </span>
+                                           
+                                            {
+                                                item.mealTypes.map((badgeitem,index)=>{
+                                                    return(
+                                                        <Fragment key={index}>
+                                                            <span className='badge bg-success' style={{marginLeft:"4%"}}>{badgeitem.mealtype_name}</span>
+                                                        </Fragment>
+                                                    )
+                                                })
+                                            }&nbsp;
+                                            {
+                                                item.cuisines.map((badgecuisine,index)=>{
+                                                    return(
+                                                        <Fragment key={index}>
+                                                            &nbsp;<span className='badge bg-danger'>{badgecuisine.cuisine_name}</span>
+                                                        </Fragment>
+                                                    )
+                                                })
+                                            }
+                                          
                                         </div>
                                     </div>
                                 </div>

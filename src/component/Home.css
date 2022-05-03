@@ -67,6 +67,11 @@ body{
     font-weight: bold !important;
 
 }
+.navbar-light .navbar-toggler {
+    color: #ffffff;
+    border-color: #212529;
+    background-color: #fff;
+}
 .nav-link:hover{
     transform: scale(1.1);
 }
@@ -275,7 +280,7 @@ z-index: 100;
     margin-left:-8%;
 }
 footer{
-    margin-top:0.5%;
+    margin-top:48.5%;
     position: absolute;
     background-color: black;
     color:white;

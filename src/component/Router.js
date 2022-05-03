@@ -1,6 +1,6 @@
 import React from "react";
 import {BrowserRouter,Route} from 'react-router-dom';
-import Header from "./Header";
+// import Header from "./Header";
 import Footer from "./Footer";
 import Details from "./details/restDetails";
 import Listing from "./Listing/Listing";
@@ -24,8 +24,9 @@ const Router=()=>{
                 <Route path="/register" component={Register}/>
 
 
-            <Footer/>
+            
         </div>
+        <Footer/>
         </BrowserRouter>
     )
 }

@@ -9,23 +9,23 @@ class PlaceOrder extends Component {
         super(props)
         let userData = sessionStorage.getItem('userInfo')
         let oAuthData = sessionStorage.getItem('oAuthname')
-        let oAuthEmail=sessionStorage.getItem('uEmail')
+        let oAuthEmail = sessionStorage.getItem('uEmail')
         this.state = {
             id: Math.floor(Math.random() * 100000),
             Rest_name: this.props.match.params.restName,
             name: userData ? userData.split(',')[1] : '' || oAuthData,
-            email: userData ? userData.split(',')[2] : ''|| oAuthEmail,
+            email: userData ? userData.split(',')[2] : '' || oAuthEmail,
             cost: 0,
             phone: userData ? userData.split(',')[3] : '',
             address: 'Hno 341',
             menuItem: ''
         }
-       
-          
-      
+
+
+
     }
-    addItem=(data)=>{
-        if(data){
+    addItem = (data) => {
+        if (data) {
             // let data=sessionStorage.getItem('menu')
             // let dataarr=[]
             // data.split(',').map((item)=>{
@@ -35,15 +35,15 @@ class PlaceOrder extends Component {
             // console.log("Inside dataarr",dataarr)
 
         }
-       
-        
 
-        
+
+
+
 
     }
 
     renderMenu = (data) => {
-      
+
         // console.log("dataMenuItem>>>>", data)
         if (data) {
             return data.map((item) => {
@@ -52,20 +52,21 @@ class PlaceOrder extends Component {
                         <img src={item.menu_image} alt={item.menu_name} />
                         <h5>{item.menu_name}</h5>
                         <span>Rs.{item.menu_price}</span>
-                        <button className="btn btn-success" style={{marginLeft:'44%'}}  >
-                                <i class="fa-solid fa-plus"></i>
-                            </button>&nbsp;
-                            <button className="btn btn-danger" style={{    marginTop:'-29.5%',marginLeft: '80%'}}>
-                                <i class="fa-solid fa-minus"></i>
-                                </button>
-                        
-                        
+                        <button className="btn btn-success" style={{ marginLeft: '31%' }}  >
+                            <i class="fa-solid fa-plus"></i>
+                        </button>&nbsp;
+                        <span>{item.menuItem}</span>
+                        <button className="btn btn-danger" style={{ marginTop: '-29.5%', marginLeft: '80%' }}>
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+
+
 
                         {/* <div className="col-md-8">
                         {/* onClick={() => { this.addItem(item.menu_id) }} */}
                         {/* onClick={() => { this.removeItem(item.menu_id) }} */}
-                           
-                            {/* </button> */}
+
+                        {/* </button> */}
 
                         {/* </div> */}
                     </div>
@@ -91,7 +92,7 @@ class PlaceOrder extends Component {
             .then(console.log("Order Taken"))
     }
     render() {
-        
+
         if (sessionStorage.getItem('loginStatus') === 'loggedOut') {
             return (
                 <>
@@ -143,6 +144,7 @@ class PlaceOrder extends Component {
                                         <center><h2>Total Price is Rs.{this.state.cost}</h2></center>
                                     </div>
                                 </div>
+                                
                                 <center><button className="btn btn-success" onClick={this.checkOut} type="submit">Submit</button></center>
                             </form>
                         </div>
@@ -153,14 +155,14 @@ class PlaceOrder extends Component {
         )
     }
     componentDidMount() {
-       
+
         let menuItem = sessionStorage.getItem('menu')
         let orderId = []
         menuItem.split(',').map((item) => {
             orderId.push(parseInt(item));
             return 'ok';
         })
-       console.log("Inside compon order",orderId)
+        console.log("Inside compon order", orderId)
         fetch(url, {
             method: 'POST',
             headers: {
@@ -169,15 +171,31 @@ class PlaceOrder extends Component {
             },
             body: JSON.stringify(orderId)
         })
-            .then((res) => res.json()
-                .then((data) => {
-                    let totalPrice = 0;
-                    data.map((item) => {
-                        totalPrice += parseFloat(item.menu_price)
+            .then((res) => res.json())
+            .then((data) => {
+                let totalPrice = 0;
+                let menuID=sessionStorage.getItem('menu').split(',');
+                console.log(data)
+                console.log("menuID>>",menuID)
+                data.map((item) => {
+                    console.log("item>>>",item.menu_id)
+
+                        console.log("Inside menu price place>>",item.menu_price)
+                        totalPrice +=parseFloat(item.menu_price);
                         return 'ok';
-                    })
-                    this.setState({ cost: totalPrice, menuItem: data })
-                }))
+                    
+                    // }else{
+                    // totalPrice += parseFloat(item.menu_price)
+                    // return 'ok';
+                    // }
+                    
+
+
+
+
+                })
+                this.setState({ cost: totalPrice, menuItem: data })
+            })
     }
 
 }

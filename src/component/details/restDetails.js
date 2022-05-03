@@ -27,29 +27,7 @@ class Details extends Component {
         sessionStorage.setItem('menu', this.state.userItem)
         this.props.history.push(`/placeOrder/${this.state.details.restaurant_name}`)
     }
-    // renderRes=(data)=>{
-
-    //     if(data){
-    //       return data.map((item)=>{
-    //         return(
-    //           <option value={item.restaurant_id} key={item.restaurant_id}>{item.restaurant_name} | {item.address}</option>
-    //         )
-    //       })
-    //     }
-
-
-    // }
-    // imageCarousal = () => {
-    //     console.log("ResCarousal>>>",this.state.details)
-    //     if (this.state.details) {
-    //         return this.state.details.map((item) => {
-    //             return(
-
-    //             )
-    //         })
-    //     }
-    // }
-
+  
     render() {
 
     //    console.log("Inside render restdetails",this.state.details.restaurant_name)
@@ -95,7 +73,7 @@ class Details extends Component {
 
                     </div>
                     <div className="tileContent">
-                        <h1>{details.restaurant_name}</h1>
+                        <h1 >{details.restaurant_name}</h1>
                         <span id="cfeedback">295 Customer Review</span>
                         <h4>Old Price <strike>Rs. 1200</strike></h4>
                         <h4>New Price Rs. {details.cost} </h4>

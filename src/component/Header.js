@@ -9,21 +9,23 @@ class Header extends Component {
         super(props)
         this.state = {
             userData: "",
-            userName:"",
-            userImg:""
+            userName: "",
+            userImg: ""
         }
     }
- 
-    handleLogout=()=>{
+
+    handleLogout = () => {
         sessionStorage.removeItem('userInfo');
-        sessionStorage.setItem('loginStatus','loggedOut');
+        sessionStorage.setItem('loginStatus', 'loggedOut');
         sessionStorage.removeItem('ltk');
         sessionStorage.removeItem('uName')
         sessionStorage.removeItem('uImg')
-        this.setState({userData:''})
+        this.setState({ userData: '' })
         this.props.history.push("/")
     }
-    changeMode=()=> {
+    changeMode = () => {
+        // var table=document.table;
+        // table.classList.toggle("myDark");
         var myBody = document.body;
         myBody.classList.toggle("myDark");
         var cont = document.getElementsByClassName("container-fluid")[0];
@@ -39,52 +41,50 @@ class Header extends Component {
 
 
 
-        //Listing
-        var listdata = document.getElementsByClassName("city_name");
-        listdata.classList.toggle("mycity_name");
+        this.props.otherDark();
     }
     condtionalHeader = () => {
-       
 
 
-        if (this.state.userData.name || sessionStorage.getItem('uName') !==null) {
-            if(sessionStorage.getItem('uName') !==null){
-                
-                let oAuthArray=[sessionStorage.getItem('uName').toLowerCase().trim().split(' ')[0]]
-                sessionStorage.setItem('oAuthname',oAuthArray);
-                let name=sessionStorage.getItem('uName');
-                let image=sessionStorage.getItem('uImg');
-                sessionStorage.setItem('loginStatus','loggedin')
-                return(
+
+        if (this.state.userData.name || sessionStorage.getItem('uName') !== null) {
+            if (sessionStorage.getItem('uName') !== null) {
+
+                let oAuthArray = [sessionStorage.getItem('uName').toLowerCase().trim().split(' ')[0]]
+                sessionStorage.setItem('oAuthname', oAuthArray);
+                let name = sessionStorage.getItem('uName');
+                let image = sessionStorage.getItem('uImg');
+                sessionStorage.setItem('loginStatus', 'loggedin')
+                return (
                     <div className="navbar-nav">
-                        <img src={image} style={{height:67,width:75}}/>
-                    <Link className="nav-link active" to={"/"}><span className="glyphicon glyphicon-user"></span>&nbsp;Hi {name}</Link>
-                    <Link className="nav-link active" onClick={this.handleLogout}><span className="glyphicon glyphicon-log-out">Logout</span>
-                     </Link>
-        
-                    <img src="https://i.ibb.co/r5pqFg8/night.png" id="dark" onClick={this.changeMode} alt="night" border="0" width="20%" height="auto" />
-        
-                </div>
+                        <img src={image} style={{ height: 67, width: 75 }} />
+                        <Link className="nav-link active" to={"/"}><span className="glyphicon glyphicon-user"></span>&nbsp;Hi {name}</Link>
+                        <Link className="nav-link active" onClick={this.handleLogout}><span className="glyphicon glyphicon-log-out">Logout</span>
+                        </Link>
+
+                        <img src="https://i.ibb.co/r5pqFg8/night.png" id="dark" onClick={this.changeMode} alt="night" border="0" width="20%" height="auto" />
+
+                    </div>
                 )
 
-            }else{
-                let data=this.state.userData;
-                let outArray=[data._id,data.name.toLowerCase().trim().split(' ')[0],data.email,data.phone,data.role];
-                sessionStorage.setItem('userInfo',outArray)
-                sessionStorage.setItem('loginStatus','loggedin')
-            return(
-                <div className="navbar-nav">
-                <Link className="nav-link active" to={"/"}><span className="glyphicon glyphicon-user">Hi {data.name}</span></Link>
-                <Link className="nav-link active" onClick={this.handleLogout}><span className="glyphicon glyphicon-log-out">Logout</span></Link>
-    
-                <img src="https://i.ibb.co/r5pqFg8/night.png" id="dark" onClick={this.changeMode} alt="night" border="0" width="20%" height="auto" />
-    
-            </div>
-            )
-    
+            } else {
+                let data = this.state.userData;
+                let outArray = [data._id, data.name.toLowerCase().trim().split(' ')[0], data.email, data.phone, data.role];
+                sessionStorage.setItem('userInfo', outArray)
+                sessionStorage.setItem('loginStatus', 'loggedin')
+                return (
+                    <div className="navbar-nav">
+                        <Link className="nav-link active" to={"/"}><span className="glyphicon glyphicon-user">Hi {data.name}</span></Link>
+                        <Link className="nav-link active" onClick={this.handleLogout}><span className="glyphicon glyphicon-log-out">Logout</span></Link>
+
+                        <img src="https://i.ibb.co/r5pqFg8/night.png" id="dark" onClick={this.changeMode} alt="night" border="0" width="20%" height="auto" />
+
+                    </div>
+                )
+
             }
-            }
-            else {
+        }
+        else {
             return (
 
 
@@ -111,10 +111,10 @@ class Header extends Component {
 
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
+                            <span className="navbar-toggler-icon" ></span>
                         </button>
                         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                           {this.condtionalHeader()}
+                            {this.condtionalHeader()}
                         </div>
                     </div>
 
@@ -124,34 +124,34 @@ class Header extends Component {
         )
     }
     componentDidMount() {
-        console.log("Inside header >>>>",this.props.location.search)
-        if(this.props.location.search){
-            if(this.props.location.search.split('=')[0]=='?code'){
-                var code=this.props.location.search.split('=')[1];
-                if(code){
-                    let requestData={
-                        code:code
+        console.log("Inside header >>>>", this.props.location.search)
+        if (this.props.location.search) {
+            if (this.props.location.search.split('=')[0] == '?code') {
+                var code = this.props.location.search.split('=')[1];
+                if (code) {
+                    let requestData = {
+                        code: code
                     }
-                    fetch('https://oauthgit.herokuapp.com/oauth',{
-                        method:'POST',
-                        headers:{
-                            'Accept':'application/json',
-                            'Content-Type':'application/json'
+                    fetch('https://oauthgit.herokuapp.com/oauth', {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
                         },
-                        body:JSON.stringify(requestData)
+                        body: JSON.stringify(requestData)
                     })
-                    .then((res)=>res.json())
-                    .then((data)=>{
-                        console.log(">>>Data",data)
-                        let userName=data.name;
-                        let email=data.login;
-                        let Img=data.avatar_url;
-                        sessionStorage.setItem('uName',userName)
-                        sessionStorage.setItem('uImg',Img)
-                        sessionStorage.setItem('uEmail',email)
-                        // sessionStorage.setItem('uImg',Img)
-                        this.setState('loginStatus','loggedin')
-                    })
+                        .then((res) => res.json())
+                        .then((data) => {
+                            console.log(">>>Data", data)
+                            let userName = data.name;
+                            let email = data.login;
+                            let Img = data.avatar_url;
+                            sessionStorage.setItem('uName', userName)
+                            sessionStorage.setItem('uImg', Img)
+                            sessionStorage.setItem('uEmail', email)
+                            // sessionStorage.setItem('uImg',Img)
+                            this.setState('loginStatus', 'loggedin')
+                        })
                 }
             }
         }

@@ -1,0 +1,14 @@
+#orderBox{
+    display: none;
+}
+@media screen and (max-width:920px){
+   .orderTable{
+  display: none;
+   }
+   #orderBox{
+    display:contents;
+   
+    margin-top: 3%;
+    
+}
+}

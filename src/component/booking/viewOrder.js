@@ -4,7 +4,8 @@ import axios from "axios";
 // import { withRouter } from "react-router-dom";
 import BookingDisplay from "./orderDisplay";
 import Header from "../Header";
-const url = "https://zomatopk.herokuapp.com/orders"
+const orderUrl = "https://zomatopk.herokuapp.com/orders";
+const updateUrl = "https://zomatopk.herokuapp.com/updateOrder";
 
 class ViewOrder extends Component {
     constructor(props) {
@@ -16,6 +17,7 @@ class ViewOrder extends Component {
         }
     }
     render() {
+        console.log("orderniow>>>",this.state.orders)
     
 
         // console.log("Inside render vieworder", this.props.location)
@@ -48,15 +50,16 @@ class ViewOrder extends Component {
             if (queryParam) {
                 let data = {
                     "status": queryParam.split('&')[0].split('=')[1],
-                    "date": queryParam.split('&')[2].split('=')[1],
-                    "bank_name": queryParam.split('&')[3].split('=')[1]
+                    "date": queryParam.split('&')[2].split('=')[1].split('%')[0],
+                    "bank_name": queryParam.split('&')[3].split('=')[1].split('%20')[0],
+
                 }
                 let id = queryParam.split('&')[1].split('=')[1].split('_')[1];
 
                 console.log("Inside fetch", id)
 
-                fetch(`${url}/${id}`, {
-                    method: 'PUT',
+                fetch(`${updateUrl}/${id}`, {
+                    method: 'PATCH',
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json'
@@ -79,14 +82,14 @@ class ViewOrder extends Component {
         if(sessionStorage.getItem('uName') !==null){
             let email = sessionStorage.getItem('uEmail');
             
-            axios.get(`${url}?email=${email}`).then((res) => {
+            axios.get(`${orderUrl}?email=${email}`).then((res) => {
                 console.log(res.data)
                 this.setState({ orders: res.data })
             })
         }else{
             let email = sessionStorage.getItem('userInfo').split(',')[2];
             
-            axios.get(`${url}?email=${email}`).then((res) => {
+            axios.get(`${orderUrl}?email=${email}`).then((res) => {
                 console.log(res.data)
                 this.setState({ orders: res.data })
             })
