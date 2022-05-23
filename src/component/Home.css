@@ -24,6 +24,9 @@ body{
 .quickS{
     color:white !important;
 }
+.myItem{
+    color:white !important;
+}
 .myLogo{
     background-color:#192734 !important ;
 }
@@ -279,14 +282,13 @@ z-index: 100;
     margin-top:6%;
     margin-left:-8%;
 }
-footer{
-    margin-top:48.5%;
+footer {
+   
     position: absolute;
     background-color: black;
-    color:white;
+    color: white;
     display: block;
-    width:100%;
-    
+    width: 100%;
 }
 .icons1{
     visibility: hidden;
@@ -1680,6 +1682,10 @@ option{
         height:35px;
      
     }
+    
+    .navbar{
+        width: 100%;
+    }
     #Output{
         position:absolute;
         margin-top:45%;
@@ -1823,6 +1829,8 @@ option{
    
 }
 
+
+/* dark mode ends */
 
 
  

@@ -8,8 +8,32 @@
     width:48%;
     float: left;
 }
-
-
+.row {
+    margin-right: 0;
+}
+.navbar{
+    width: 100%;
+}
+/* .row>* {
+    margin-left: 7%;
+    border: 2px solid;
+    flex-shrink: 0;
+    width: 70%;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    margin-top: var(--bs-gutter-y);
+}
+.row {
+    !important
+    --bs-gutter-x: 1.5rem  !important;
+    --bs-gutter-y: 0  !important;
+    display: flex  !important;
+    flex-wrap: wrap  !important;
+    margin-top: calc(var(--bs-gutter-y) * -1 )  !important;
+    /* margin-right: calc(var(--bs-gutter-x) * -.5); */
+    /* margin-left: calc(var(--bs-gutter-x) * -.5)  !important; */
+/* } */ 
 
 .tileContent{
     height: 550px;
@@ -148,11 +172,9 @@
         place-content: center;
     }
     .imageClass > img {
-        height: 383px;
-    }    
-    .tileContent {
-        margin-top: -53%;
+        height: 541px;
     }
+   
     .TabList {
         margin-top: 53%;
     }
@@ -160,17 +182,20 @@
         margin-left: -6%;
     }
     #menuAdded{
-        margin-top: 71%;
+        margin-top: 91%;
         /* position: absolute; */
     }
     #renderAdded{
-        margin-top: 48%;
+        margin-top: 62%;
         position: absolute;
         text-align: center;
     }
     #menuName{
         font-size: 20px;
         font-weight: bold;
+    }
+    .resHead{
+        margin-top:13px
     }
 }
 @media screen and (max-width:350px) {
@@ -184,4 +209,18 @@
      
         margin-left: -19%;
     }
+    .carousal{
+        width: 100%;
+    }
+    .tileContent {
+        width: 100%;
+        /* border: 2px solid; */
+    }
+    /* #menuAdded {
+        width: 100%;
+        /* border: 2px solid; */
+        /* margin-top: 31%;
+    } */
+     
+    
 }

@@ -12,11 +12,15 @@ function closeDiv(){
 //   document.getElementById("coupon").style.visibility="visible";
 // }
 
-// const myTimeout=setTimeout(greeting,1000);
-// function greeting(){
+
+function greeting(){
   
-//   document.getElementById("coupon").style.visibility="visible";
-// }
+  document.getElementById("coupon").style.visibility="visible";
+}
+const myTimeout=()=>{
+  setTimeout(greeting,10000);
+}
+myTimeout();
 
 function copyClip(){
   var code=document.getElementById("Copy");
@@ -121,7 +125,7 @@ render(){
         {/* <!-- logo and dynamic --> */}
         <div id="logo" className="logo">
 
-            <span>P.K</span>
+            <span><b>P.K</b></span>
            
         </div>
         
@@ -145,7 +149,7 @@ render(){
 
 
 
-    <div id="coupon">
+    <div id="coupon" style={{visibility:"hidden"}}>
         <div className="coupon">
             <button onClick={closeDiv}  >&times;</button>
             <img src="https://i.ibb.co/VTTrsKR/BANNER10-22-1605879814.jpg" alt=""/>

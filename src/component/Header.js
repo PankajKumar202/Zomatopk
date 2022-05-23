@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import "./Home.css";
 // import "./Listing/Listing.css"
 import { Link, withRouter } from "react-router-dom";
@@ -23,26 +23,28 @@ class Header extends Component {
         this.setState({ userData: '' })
         this.props.history.push("/")
     }
-    changeMode = () => {
-        // var table=document.table;
-        // table.classList.toggle("myDark");
-        var myBody = document.body;
-        myBody.classList.toggle("myDark");
-        var cont = document.getElementsByClassName("container-fluid")[0];
-        cont.classList.toggle("myCont");
-        var Quick = document.getElementsByClassName("Quick-Heading")[0];
-        Quick.classList.toggle("quickT");
-        var Quick1 = document.getElementsByClassName("Quick-Subheading")[0];
-        Quick1.classList.toggle("quickS");
-        var logo = document.getElementsByClassName("logo")[0];
-        logo.classList.toggle("myLogo");
-        var heading = document.getElementsByClassName("heading")[0];
-        heading.classList.toggle("myHeading");
+    // changeMode = () => {
+    //     // var table=document.table;
+    //     // table.classList.toggle("myDark");
+    //     var myBody = document.body;
+    //     myBody.classList.toggle("myDark");
+    //     var cont = document.getElementsByClassName("container-fluid")[0];
+    //     cont.classList.toggle("myCont");
+    //     var Quick = document.getElementsByClassName("Quick-Heading")[0];
+    //     Quick.classList.toggle("quickT");
+    //     var Quick1 = document.getElementsByClassName("Quick-Subheading")[0];
+    //     Quick1.classList.toggle("quickS");
+    //     var logo = document.getElementsByClassName("logo")[0];
+    //     logo.classList.toggle("myLogo");
+    //     var heading = document.getElementsByClassName("heading")[0];
+    //     heading.classList.toggle("myHeading");
+    //     var item=document.getElementsByClassName("item")[0];
+    //     item.classList.toggle("myItem")
+        
 
 
-
-        this.props.otherDark();
-    }
+        
+    // }
     condtionalHeader = () => {
 
 
@@ -51,18 +53,19 @@ class Header extends Component {
             if (sessionStorage.getItem('uName') !== null) {
 
                 let oAuthArray = [sessionStorage.getItem('uName').toLowerCase().trim().split(' ')[0]]
+                console.log("OAUth",oAuthArray)
                 sessionStorage.setItem('oAuthname', oAuthArray);
                 let name = sessionStorage.getItem('uName');
                 let image = sessionStorage.getItem('uImg');
                 sessionStorage.setItem('loginStatus', 'loggedin')
                 return (
                     <div className="navbar-nav">
-                        <img src={image} style={{ height: 67, width: 75 }} />
+                        <img src={image} alt="git" style={{ height: 67,width: 75 }} />
                         <Link className="nav-link active" to={"/"}><span className="glyphicon glyphicon-user"></span>&nbsp;Hi {name}</Link>
                         <Link className="nav-link active" onClick={this.handleLogout}><span className="glyphicon glyphicon-log-out">Logout</span>
                         </Link>
 
-                        <img src="https://i.ibb.co/r5pqFg8/night.png" id="dark" onClick={this.changeMode} alt="night" border="0" width="20%" height="auto" />
+                        
 
                     </div>
                 )
@@ -77,7 +80,7 @@ class Header extends Component {
                         <Link className="nav-link active" to={"/"}><span className="glyphicon glyphicon-user">Hi {data.name}</span></Link>
                         <Link className="nav-link active" onClick={this.handleLogout}><span className="glyphicon glyphicon-log-out">Logout</span></Link>
 
-                        <img src="https://i.ibb.co/r5pqFg8/night.png" id="dark" onClick={this.changeMode} alt="night" border="0" width="20%" height="auto" />
+                        {/* <img src="https://i.ibb.co/r5pqFg8/night.png" id="dark" onClick={()=>this.changeMode} alt="night" border="0" width="20%" height="auto" /> */}
 
                     </div>
                 )
@@ -93,7 +96,7 @@ class Header extends Component {
                     <Link className="nav-link active" to={"/login"}>Login</Link>
                     <Link className="nav-link active" to={"/register"}>Signup</Link>
 
-                    <img src="https://i.ibb.co/r5pqFg8/night.png" id="dark" onClick={this.changeMode} alt="night" border="0" width="20%" height="auto" />
+                   
 
                 </div>
 
@@ -103,7 +106,7 @@ class Header extends Component {
     }
     render() {
         return (
-            <Fragment>
+         
                 <nav className="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
                     <div className="container-fluid">
 
@@ -120,13 +123,14 @@ class Header extends Component {
 
 
                 </nav>
-            </Fragment>
+           
         )
     }
     componentDidMount() {
+        sessionStorage.setItem('loginStatus','');
         console.log("Inside header >>>>", this.props.location.search)
         if (this.props.location.search) {
-            if (this.props.location.search.split('=')[0] == '?code') {
+            if (this.props.location.search.split('=')[0] === '?code') {
                 var code = this.props.location.search.split('=')[1];
                 if (code) {
                     let requestData = {

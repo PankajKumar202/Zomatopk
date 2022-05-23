@@ -4,65 +4,53 @@ class MenuDisplay extends Component {
     constructor() {
         super()
         this.state = {
-            quantity: [],
-            count:0
+            quantity: 0,
+            
            
             // show: true
         }
     }
     // My code ends
     orderId = [];
+    // quantity=[]
     addItem = (id) => {
 
         this.orderId.push(id)
-        this.props.finalOrder(this.orderId);
-        // let inc=[...this.state.quantity];
         
-       var incCount=[...this.state.quantity];
-       var countNow=[...this.state.count]
-       var count={};
-       
-       if(incCount[id]){
-         
-           incCount[id].count=incCount[id].count+1;
-       }
-       this.setState(
-           {
-               quantity:incCount[id].count
-           }
-       )
+        let quantity = {}
+        this.orderId.reduce((item, curr) => {
+            if (item[curr]) {
+                item[curr] = ++item[curr]
+            } else {
+                item[curr] = 1
+            }
 
+            return item
+        }, quantity)
+        console.log("q",quantity)
+        this.props.finalOrder(this.orderId,quantity);
+ 
+      
+           
         
+  
 
-       
-       
-    // let count=[this.state.count]
-    //         this.setState(
-                
-    //             {
-    //                 quantity: inc[id].count + 1
-    //             }
-
-    //         )
+     
         
 
 
     }
+  
+   
 
-    removeItem = (dec, id) => {
+
+    removeItem = ( id) => {
         if (this.orderId.indexOf(id) > -1) {
             this.orderId.splice(this.orderId.indexOf(id), 1);
 
         }
 
-        if (this.state.quantity >= 1) {
-            if (dec[id])
-                this.setState(
-                    {
-                        quantity: dec[id] - 1
-                    }
-                )
-        }
+   
 
         this.props.finalOrder(this.orderId)
     }
@@ -87,8 +75,8 @@ class MenuDisplay extends Component {
             return menuData.map((item) => {
                 return (
 
-                    <div key={item.menu_id}>
-                        <div className="row" style={{ marginTop: '1%' }}>
+                  
+                        <div className="row" style={{ marginTop: '1%' }} key={item.menu_id}>
                             <div className="col-md-7">
                                 <b>{item.menu_id}. </b>&nbsp;
                                 <img src={item.menu_image} alt={item.menu_name} style={{ width: 80, height: 80 }}></img><br />
@@ -98,18 +86,15 @@ class MenuDisplay extends Component {
                                 <button className="btn btn-success" onClick={() => { this.addItem(item.menu_id) }}>
                                     <i class="fa-solid fa-plus"></i>
                                 </button>&nbsp;
-                                <input className="quantity" id="quant" type="text" value={this.state.quantity[item.menu_id]} readOnly />
-                                <button className="btn btn-danger" onClick={() => { this.removeItem(this.state.quantity, item.menu_id) }}>
+                               
+                                <button className="btn btn-danger" onClick={() => { this.removeItem( item.menu_id) }}>
                                     <i class="fa-solid fa-minus"></i>
 
                                 </button>
-                                {/* <button onClick={this.ToggleClick}>
-                                    {this.state.show ? 'Hide number' : 'Show number'}
-                                </button> */}
-                                {/* {this.state.show ? <h2>{this.state.quantity}</h2> : ''} */}
+                              
                             </div>
                         </div>
-                    </div>
+                 
 
                 )
             })
@@ -117,6 +102,7 @@ class MenuDisplay extends Component {
     }
     render() {
         console.log(this.props)
+        // console.log(orderFilter())
         return (
             <Fragment>
                 <div className="col-md-12" id="renderAdded">

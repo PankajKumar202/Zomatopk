@@ -1,255 +1,302 @@
-/* dark mode */
-.myRestName{
-    background-color:#fff !important ;
-}
-/* dark mode ends */
-.row{
-    width: 100%;
-    /* bord
-    .er: 2px solid; */
+
+#mainListing{
+    margin-left: 7%;
+    margin-top: 5%;
+    width:91%;
+/*     border:2px solid */
 }
 
-#mainListing {
-    /* border: 2px solid black; */
-    margin-left: 1%;
-    margin-top: 5%;
-  
-    width: 98%;
-}
-.filter-Container{
-  
-    width:24%;
-    height: 700px;
-   float: left;
-    margin-left: 3%;
-    margin-top: 2%;
-    position:absolute;
-    box-shadow: 0 4px 15px 0 grey;
-}
 #filter{
     height:600px;
     width:20%;
     float: left;
     border: 5px solid gray;
 }
+
 #content{
- 
-    width: 65%;
+    width:65%;
     float: left;
-    margin-left: 21%;
+    margin-left: 5%;
     margin-top: -1%;
 
-
 }
-
-.item {
+.modalContainer{
+    display: none;
+}
+.itemDiv{
+        margin-left: -6%;
     width: 875px;
     height: 320px;
-    box-shadow: 0 4px 15px 0 grey;
-    margin-bottom: 20px;
-    margin-left: 37%;
-    margin-top: 4.5%;
+    box-shadow: 10px 10px 20px #aba8a8;
+    margin-bottom: 5%;
+    padding-top: 2%;
+    background-color: #fbfbfb;
 }
 
-.Image {
+.itemImage {
     width: 340px;
     height: 260px;
     border-radius: 23px;
-    border: 2px solid white;
     background-color: #ea6060;
     margin-left:5%;
-    margin-top:2%;
+    margin-top: 4%;
 }
 
-.hotel_name {
+.restaurant_name {
     width: 100%;
     height: 43px;
     font-family: Poppins;
     font-size: 25px;
     font-weight: 600;
-    font-stretch: normal;
-    font-style: normal;
     line-height: 2;
-    letter-spacing: normal;
     text-align: left;
-    margin-top:3%;
-    
+    color: #555c62;
+    margin-top: 0%;
 }
-.rest_name{
-    color: #192f60;
-    text-decoration: none;
-}
+
 .city_name {
     width: 100%;
     height: 23px;
     font-family: Poppins;
-    font-size: 16px;
-    font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 5;
-    letter-spacing: normal;
+    font-size: 20px;
+    line-height: 1;
     text-align: left;
-    color: #192f60;
+    color: #555c62;
 }
 
 .rating {
-    line-height: 5.4;
+    line-height: 2;
+    padding-top: 3%;
 }
 
-.badgeDiv{
-    margin-top: 5%;
-    width: 54%;
+.labelDiv{
+    margin-top: 0%;
 }
-.bg-success{
-    margin-left:4%;
+
+a{
+    
+    color: #555c62;
+    text-decoration: none;
 }
-.Loading{
-    margin-left:45%;
-    margin-top:3%;
+
+#Loading{
+    color:#555c62;
 }
-/* Modal css */
-.modalContainer{
-    visibility: hidden;
-}
-/* Media querry */
-@media screen and (max-width:2000px){
-    .filter-Container{
-        margin-left:12%;
-    }
-}
-@media screen and (max-width:1650px){
-    .filter-Container {
-        margin-left: 2%;
-    }
-    .item {
-      
-        margin-left: 14%;
-      
-    }
-}
+
+/* Media Query Starts */
+
 @media screen and (max-width:1300px){
-    .item {
-        width: 87%;
+    #mainListing {
+        margin-left: 5%;
+    }
+}
+
+@media screen and (max-width: 1250px){
+    #mainListing {
+        margin-left: 4%;
+    }
+    #ListingComp1{
+        margin-left: -3%;
+    }
+}
+
+@media screen and (max-width: 1220px){
+    #filter {
         
+        width: 95%;
+        margin-left: 0.5%;
+        height: 524px;
     }
-    .rest_name {
-        margin-left: 12%;
-        font-size: 18px;
+    #cuisineDiv, #costDiv, #sortDiv{
+        width: 28%;
+        float: left;
+        vertical-align: top;
+        margin-left: 5%;
     }
-    .city_name {
-        margin-left: 12%;
+    #filterSubHeading{
+        text-align: left;
+        margin-left: 9%;
     }
-    .badgeDiv {
-        /* border: 2px solid; */
-        width: 77%;
-        margin-left: 11%;
-        margin-top: 6%;
-    }
-    .item {
-        margin-left: 27%;
-        width: 94%;
-    }
-    .filter-Container {
+    #content {
         margin-left: 10%;
         margin-top: 5%;
     }
-    
-.Image {
-    width: 295px;
-  
-    margin-left: -1%;
-   
 }
-#cityDiv{
-    /* border: 2px solid black; */
-    height: 100px;
-    margin-top: -12%;
-}
-}
-@media screen and (max-width:1100px){
-    .city_name {
-        font-size: 14px;
-        margin-left: 21%;
-    }
-    .rest_name {
-        margin-left: 20%;
-        font-size: 14px;
-    }
-    .badgeDiv{
-        
-    margin-left: 22%;
 
+@media screen and (max-width: 1100px) {
+    #content{
+        margin-left: 5.5%;
     }
 }
-@media screen and (max-width:991px){
-    .filter-Container{
-        display: none;
-    }
-    .modalContainer{
-        visibility: visible;
-        float: right;
-        margin-top: -4%;
-    }
-    .item {
-        border: 2px solid;
-        margin-left: -30%;
-        width: 152%;
-    }
-    .city_name {
-        font-size: 22px;
-        margin-left: 20%;
-        margin-top: 3%;
-        width: 354px;
-    }
-    #cityDiv {
-        /* border: 2px solid black; */
-        height: 100px;
-        margin-top: -12%;
-    }
-    .rest_name {
-        margin-left: 20%;
-        font-size: 22px;
-    }
-    .Image {
-        width: 379px;
-        margin-left: 0%;
-        height: 307px;
-    }
-    .badgeDiv {
-        margin-left: 20%;
-        /* border: 2px solid; */
-        width: 75%;
-        margin-top: 19%;
-    }
-}
-@media screen and (max-width:800px) {
-    .badgeDiv {
-        margin-left: -2%;
-        border: 2px solid;
-        width: 104%;
-        margin-top: 24%;
-    }
-    .rest_name {
-        margin-left: -3%;
-        font-size: 22px;
-    }
-    .city_name {
-        /* border: 2px solid; */
-        font-size: 17px;
-        margin-left: -2%;
-        margin-top: 3%;
-        width: 354px;
-    }
-    
-    #listbox{
-        order: 2px solid;
-        width: 404px;
+
+@media screen and (max-width: 991px) {
+    #content{
         margin-left: 3%;
     }
-    .Image {
-        width: 312px;
-        margin-left: 0%;
-        height: 307px;
+    .itemImage{
+        width: 95%;
+        margin-top: 2%;
+    }
+    #contentDiv{
+        margin-top: -30%;
+        margin-left: 42%;
+    }
+    .itemDiv{
+        padding: 1%;
+    }
+}
+
+@media screen and (max-width: 950px){
+    .itemDiv{
+        width: 135%;
+        margin-left: 2%;
+    }
+    #contentDiv {
+        margin-top: -32%;
+        margin-left: 44%;
+    }
+    .restaurant_name{
+        line-height: 1.5;
+    }
+}
+
+@media screen and (max-width: 800px){
+    #contentDiv {
+        margin-top: -37%;
+        margin-left: 48%;
+    }
+    .itemImage {
+        width: 98%;
+    }
+}
+
+@media screen and (max-width: 767px){
+    #contentDiv {
+        width: 50%;
+        margin-top: -30%;
+        margin-left: 49%;
+        /* border: 2px solid; */
+    }
+    .itemImage {
+        width: 40%;
+        height: 200px;
+        margin-top: 2%;
+    }
+    .labelDiv {
+        margin-top: 15%;
+        margin-left: -94%;
+    }
+}
+
+@media screen and (max-width: 650px){
+    #contentDiv {
+        margin-top: -30%;
+        margin-left: 50%;
+    }
+    .itemImage {
+        width: 35%;
+        height: 175px;
+    }
+    .labelDiv{
+        margin-top: 8%;
+        margin-left: -98%;
+    }
+    .rating{
+        padding-top: 15%;
+    }
+}
+
+
+@media screen and (max-width: 600px){
+    .labelDiv {
+        margin-top: 20%;
+        margin-left: -75%;
+    }
+    #contentDiv {
+        margin-top: -35%;
+        margin-left: 42%;
+    }
+    .city_name{
+        font-size:18px;
+    }
+    .rating {
+        padding-top: 4%;
+    }
+}
+
+@media screen and (max-width: 530px){
+    #contentDiv {
+        margin-top: -45%;
+    }
+    a{
+        font-size:20px
+    }
+    .city_name {
+        font-size: 13px;
+    }
+    .modalContainer{
+        display: contents;
+    }
+    #filter{
+        display: none;
+    }
+    .labelDiv {
+        font-size: 22px;
+    }
+   
+}
+@media screen and (max-width: 400px){
+  
+    .itemDiv {
+        /* margin-top: 4%; */
+        width: 148%;
+    }
+    #contentDiv {
+        width: 100%;
+        margin-top: -42%;
+        margin-left: -4%;
+        height: 314px;
+    }
+    .restaurant_name {
+        margin-left: 15%;
+        margin-top: 45%;
+        line-height: 1.5;
+    }
+    a{
+        font-size:20px
+    }
+    .city_name {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .modalContainer{
+        display: contents;
+    }
+    #filter{
+        display: none;
+    }
+    .labelDiv {
+       display: none;
+    }
+    .rating {
+        font-size: 21px;
+        font-weight: bold;
+    }
+    .cost{
+        font-size: 21px;
+        font-weight: bold;
+    }
+    .itemImage {
+        width: 81%;
+        height: 121px;
+    }
+   
+   
+}
+@media screen and (max-width: 300px){
+ 
+    .restaurant_name {
+        
+        margin-left: 8%;
     }
 }

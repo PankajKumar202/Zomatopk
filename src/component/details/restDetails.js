@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import MenuDisplay from "./menuDisplay";
 import "./details.css";
 import axios from "axios";
@@ -19,12 +19,15 @@ class Details extends Component {
         }
 
     }
-    addToCart = (data) => {
-        console.log(">>>>", data)
-        this.setState({ userItem: data });
+    addToCart = (data1,data2) => {
+        console.log(">>>>1", data1)
+        console.log(">>>>2", data2)
+        sessionStorage.setItem("quantity",JSON.stringify(data2))
+        this.setState({ userItem: data1,quantity:data2 });
     }
     proceed = () => {
-        sessionStorage.setItem('menu', this.state.userItem)
+        // sessionStorage.setItem('menu', this.state.userItem)
+        sessionStorage.setItem('menu1', JSON.stringify(this.state.userItem))
         this.props.history.push(`/placeOrder/${this.state.details.restaurant_name}`)
     }
   
@@ -47,7 +50,7 @@ class Details extends Component {
         }
         let { details } = this.state;
         return (
-            <>
+            <Fragment>
             <Header/>
                 <div className="main">
                     <div className="tileImage">
@@ -73,11 +76,11 @@ class Details extends Component {
 
                     </div>
                     <div className="tileContent">
-                        <h1 >{details.restaurant_name}</h1>
-                        <span id="cfeedback">295 Customer Review</span>
-                        <h4>Old Price <strike>Rs. 1200</strike></h4>
-                        <h4>New Price Rs. {details.cost} </h4>
-                        <h3>We Kill Your Hungry Birds</h3>
+                        <h1 className="resHead">{details.restaurant_name}</h1>
+                        <span id="cfeedback" className="resHead">295 Customer Review</span>
+                        <h4 className="resHead">Old Price <strike>Rs. 1200</strike></h4>
+                        <h4 className="resHead">New Price Rs. {details.cost} </h4>
+                        <h3 className="resHead">We Kill Your Hungry Birds</h3>
                         <div>
                             <div className="icons">
                                 <img src="/images/sanitised.jpg" />
@@ -117,8 +120,8 @@ class Details extends Component {
 
                 </div>
                 <MenuDisplay menuData={this.state.menuList}
-                    finalOrder={(data) => { this.addToCart(data) }} />
-            </>
+                    finalOrder={(data1,data2) => { this.addToCart(data1,data2) }} />
+            </Fragment>
 
         )
     }

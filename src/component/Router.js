@@ -13,7 +13,7 @@ import Register from "../login/logout/register";
 const Router=()=>{
     return(
         <BrowserRouter>
-        <div>
+        {/* <div> */}
             
                 <Route exact path="/" component={Home}></Route>
                 <Route  path="/listing/:mealId" component={Listing}></Route>
@@ -25,7 +25,7 @@ const Router=()=>{
 
 
             
-        </div>
+        {/* </div> */}
         <Footer/>
         </BrowserRouter>
     )
